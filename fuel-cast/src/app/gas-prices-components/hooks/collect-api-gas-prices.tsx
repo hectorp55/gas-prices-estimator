@@ -1,8 +1,9 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, QueryKey } from "@tanstack/react-query";
 
-async function fetchTodaysGasPrice() {
-    const response = await fetch('api/todays-gas-price');
+async function fetchTodaysGasPrice({ queryKey }) {
+    const [_, stateId] = queryKey;
+    const response = await fetch(`api/todays-gas-price?state=${stateId}`);
     if (!response.ok) {
         throw new Error('Problem with todays gas prices');
     }
@@ -12,9 +13,9 @@ async function fetchTodaysGasPrice() {
     return { price: data.result.state[0].gasoline };
 }
 
-export const getTodaysGasPrice = () => {
+export const getTodaysGasPrice = (state: string) => {
     return useQuery({
-        queryKey: ['stateTodayGasPrice'],
+        queryKey: ['stateTodayGasPrice', state],
         queryFn: fetchTodaysGasPrice,
     });
 }
