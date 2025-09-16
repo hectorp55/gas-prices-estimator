@@ -49,6 +49,13 @@ async function fetchWeeklyGasPrice() {
     return { prices: data.response.data };
 }
 
+// const translateWeeklyGasPrices(response) {
+//     return response.map((week) => {
+//         name: week.period,
+         
+//     })
+// }
+
 export const getWeeklyGasPrices = () => {
     return useQuery({
         queryKey: ['weeklyGasPrices'],

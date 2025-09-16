@@ -2,7 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { getTodaysGasPrice } from './hooks/collect-api-gas-prices';
 
-export default function TodaysGasPrice({className}) {
+type TodaysGasPriceProps = {
+    className?: string
+}
+
+const TodaysGasPrice: React.FC<TodaysGasPriceProps> = ({className}) => {
     const [gasState, setGasState] = useState("TX");
     const { data, isLoading, error } = getTodaysGasPrice(gasState);
 
@@ -27,3 +31,5 @@ export default function TodaysGasPrice({className}) {
         </div>
     );
 }
+
+export default TodaysGasPrice;
