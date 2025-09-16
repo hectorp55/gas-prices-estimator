@@ -1,18 +1,19 @@
-import TodaysDate from "./date-component/todays-date";
-import HistoricalGasPrices from "./gas-prices-components/historical-gas-prices";
-import TodaysGasPrice from "./gas-prices-components/todays-gas-price";
-import WeeklyGasPrices from "./gas-prices-components/weekly-gas-prices";
+import GasLineChart from "./charts/gas-line-chart";
+import WeeklyFuelCast from "./footer/weekly-fuel-cast/weekly-fuel-cast";
+import Header from "./header/header";
 
 export default function Home() {
   return (
     <div className="whole-app">
+      <header>
+        <Header></Header>
+      </header>
       <main>
-        Hello Hector Puga
-        <TodaysDate></TodaysDate>
-        <TodaysGasPrice></TodaysGasPrice>
-        <HistoricalGasPrices></HistoricalGasPrices>
-        <WeeklyGasPrices></WeeklyGasPrices>
+        <GasLineChart></GasLineChart>
       </main>
+      <footer>
+        <WeeklyFuelCast></WeeklyFuelCast>
+      </footer>
     </div>
   );
 }
