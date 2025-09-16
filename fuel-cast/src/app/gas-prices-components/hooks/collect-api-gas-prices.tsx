@@ -37,3 +37,21 @@ export const getHistoricalGasPrices = () => {
         queryFn: fetchHistoricalGasPrice,
     });
 }
+
+async function fetchWeeklyGasPrice() {
+    const response = await fetch('api/weekly-gas-prices');
+    if (!response.ok) {
+        throw new Error('Problem with historical gas prices');
+    }
+    const data = await response.json();
+    console.log(data);
+
+    return { prices: data.response.data };
+}
+
+export const getWeeklyGasPrices = () => {
+    return useQuery({
+        queryKey: ['weeklyGasPrices'],
+        queryFn: fetchWeeklyGasPrice,
+    });
+}
