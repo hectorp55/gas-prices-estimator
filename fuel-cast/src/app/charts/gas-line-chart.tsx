@@ -1,5 +1,5 @@
 'use client';
-import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Legend } from 'recharts';
+import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, LabelList } from 'recharts';
 import { getWeeklyGasPrices } from '../gas-prices-components/hooks/collect-api-gas-prices';
 
 export default function GasLineChart() {
@@ -15,13 +15,15 @@ export default function GasLineChart() {
   }
 
   return (
-    <div className="w-full h-100 p-5">
+    <div className="w-full h-100 p-10">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={gasData?.prices}>
             <CartesianGrid />
-            <Line dataKey="value" stroke="#F97316"/>
+            <Line dataKey="value" stroke="#F97316">
+              <LabelList dataKey="value" position="top" />
+            </Line>
             <XAxis dataKey="period"/>
-            <YAxis domain={[0, 5]}/>
+            <YAxis domain={[2, 4]}/>
             <Legend />
         </LineChart>
       </ResponsiveContainer>

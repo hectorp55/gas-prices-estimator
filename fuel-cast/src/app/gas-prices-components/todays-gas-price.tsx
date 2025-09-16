@@ -18,9 +18,6 @@ const TodaysGasPrice: React.FC<TodaysGasPriceProps> = ({averagePrice, todaysPric
                 {trendColor == "text-green-500" && <span className={`text-2xl ${trendColor} flex flex-col justify-center`}><FaArrowAltCircleDown/></span>}
                 <span className={`text-5xl ${trendColor} flex flex-col justify-center`}>${todaysPrice}</span>
             </h1>
-            <div className="flex flex-col justify-center text-gray-500">
-                Texas
-            </div>
             {/* Pick a state: 
             <select name="selectedState" value={gasState} onChange={e => setGasState(e.target.value)}>
                 <option value="TX">Texas</option>

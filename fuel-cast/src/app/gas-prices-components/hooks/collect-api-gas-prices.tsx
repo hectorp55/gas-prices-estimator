@@ -8,7 +8,6 @@ async function fetchTodaysGasPrice({ queryKey }) {
         throw new Error('Problem with todays gas prices');
     }
     const data = await response.json();
-    console.log(data);
 
     return { price: data.result.state[0].gasoline };
 }
@@ -26,7 +25,6 @@ async function fetchHistoricalGasPrice() {
         throw new Error('Problem with historical gas prices');
     }
     const data = await response.json();
-    console.log(data);
 
     return { prices: data.observations };
 }
@@ -44,17 +42,9 @@ async function fetchWeeklyGasPrice() {
         throw new Error('Problem with historical gas prices');
     }
     const data = await response.json();
-    console.log(data);
 
     return { prices: data.response.data };
 }
-
-// const translateWeeklyGasPrices(response) {
-//     return response.map((week) => {
-//         name: week.period,
-         
-//     })
-// }
 
 export const getWeeklyGasPrices = () => {
     return useQuery({

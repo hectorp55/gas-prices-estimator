@@ -13,9 +13,7 @@ export default function Header() {
   const { data: weeklyData, isLoading: isWeeklyLoading, error: weeklyError } = getWeeklyGasPrices();
 
   useEffect(() => {
-    const sum = weeklyData?.prices.reduce((accumulator, week) => {
-      return accumulator + week.value;
-    });
+    const sum = weeklyData?.prices.reduce((accumulator: number, week) => accumulator + Number(week.value), 0);
     const average = sum / weeklyData?.prices.length;
     setAverageGasPrice(average);
   }, [weeklyData]);
@@ -29,14 +27,21 @@ export default function Header() {
       );
   }
 
-  const suggestion = averageGasPrice < todaysData?.price ? "Pump!" : "Hold!";
+  const suggestion = averageGasPrice < todaysData?.price ? "Hold!" : "Pump!";
+  console.log(`AVG ${averageGasPrice} Today ${todaysData?.price}`)
 
   return (
     <div className="flex flex-row justify-evenly m-10">
-        <TodaysGasPrice averagePrice={averageGasPrice} todaysPrice={todaysData?.price}></TodaysGasPrice>
-        {suggestion == "Pump!" && <div className="flex flex-col justify-center text-6xl text-green-500">{suggestion}</div>}
-        {suggestion == "Hold!" && <div className="flex flex-col justify-center text-6xl text-red-500">{suggestion}</div>}
         <TodaysInformation></TodaysInformation>
+        {suggestion == "Pump!" && <div className="flex flex-col justify-center text-6xl text-green-500">
+          <img className="w-20" src="./pump-green.png"></img>
+          <span className="text-center">{suggestion}</span>
+          </div>}
+        {suggestion == "Hold!" && <div className="flex flex-col justify-center text-2xl text-red-500">
+          <img className="w-20" src="./hold-red.png"></img>
+          <span className="text-center">{suggestion}</span>
+          </div>}
+        <TodaysGasPrice averagePrice={averageGasPrice} todaysPrice={todaysData?.price}></TodaysGasPrice>
     </div>
   );
 }
