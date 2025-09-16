@@ -1,9 +1,9 @@
 'use client';
 import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, LabelList } from 'recharts';
-import { getWeeklyGasPrices } from '../gas-prices-components/hooks/collect-api-gas-prices';
+import { useWeeklyGasPrices } from '../gas-prices-components/hooks/collect-api-gas-prices';
 
 export default function GasLineChart() {
-  const { data: gasData, isLoading, error } = getWeeklyGasPrices();
+  const { data: gasData, isLoading, error } = useWeeklyGasPrices();
   
   if (isLoading) {
       return ("Loading");

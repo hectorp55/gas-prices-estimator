@@ -1,8 +1,9 @@
  // app/api/your-endpoint/route.js
+ import { NextRequest } from 'next/server';
 const API_KEY = process.env.COLLECT_API_GAS_KEY as string;
 const STATE_QUERY_KEY = "state" as string;
 
-export async function GET(request) {
+export async function GET(request: NextRequest ) {
     const searchParams = request.nextUrl.searchParams;
     const queryValue = searchParams.get(STATE_QUERY_KEY); 
 

@@ -1,6 +1,4 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { getTodaysGasPrice } from './hooks/collect-api-gas-prices';
 import { FaArrowAltCircleDown, FaArrowAltCircleUp } from 'react-icons/fa';
 
 type TodaysGasPriceProps = {

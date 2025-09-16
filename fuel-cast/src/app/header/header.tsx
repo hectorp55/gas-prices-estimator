@@ -1,19 +1,20 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { getTodaysGasPrice, getWeeklyGasPrices } from "../gas-prices-components/hooks/collect-api-gas-prices";
+import { useTodaysGasPrice, useWeeklyGasPrices } from "../gas-prices-components/hooks/collect-api-gas-prices";
 import TodaysGasPrice from "../gas-prices-components/todays-gas-price";
 import TodaysInformation from "./todays-information";
+import { Week } from '../models/week';
 
 export default function Header() {
   const [averageGasPrice, setAverageGasPrice] = useState(0);
 
-  const { data: todaysData, isLoading: isDailyLoading, error: dailyError } = getTodaysGasPrice("TX");
+  const { data: todaysData, isLoading: isDailyLoading, error: dailyError } = useTodaysGasPrice("TX");
 
 
-  const { data: weeklyData, isLoading: isWeeklyLoading, error: weeklyError } = getWeeklyGasPrices();
+  const { data: weeklyData, isLoading: isWeeklyLoading, error: weeklyError } = useWeeklyGasPrices();
 
   useEffect(() => {
-    const sum = weeklyData?.prices.reduce((accumulator: number, week) => accumulator + Number(week.value), 0);
+    const sum = weeklyData?.prices.reduce((accumulator: number, week: Week) => accumulator + Number(week.value), 0);
     const average = sum / weeklyData?.prices.length;
     setAverageGasPrice(average);
   }, [weeklyData]);

@@ -1,7 +1,7 @@
  // app/api/your-endpoint/route.js
 const API_KEY = process.env.EAI_API_KEY as string;
 
-export async function GET(request) {
+export async function GET() {
     const endDate = new Date();
     const startDate = new Date(endDate);
     startDate.setMonth(startDate.getMonth() - 1);

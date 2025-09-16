@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { getWeeklyGasPrices } from './hooks/collect-api-gas-prices';
+import { Week } from '../models/week';
+import { useWeeklyGasPrices } from './hooks/collect-api-gas-prices';
 
 export default function WeeklyGasPrices() {
-    const { data, isLoading, error } = getWeeklyGasPrices();
+    const { data, isLoading, error } = useWeeklyGasPrices();
 
     if (isLoading) {
         return ("Loading");
@@ -17,7 +17,7 @@ export default function WeeklyGasPrices() {
     return (
         <div className="todays-date">
             <main>
-                Weekly Price: {data?.prices.map((week) => {
+                Weekly Price: {data?.prices.map((week: Week) => {
                     return <span key={week.period}>Date: {week.period} Price: {week.value}</span>
                 })}
             </main>

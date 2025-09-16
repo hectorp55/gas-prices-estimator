@@ -1,9 +1,10 @@
 "use client";
-import { getWeeklyGasPrices } from '../../gas-prices-components/hooks/collect-api-gas-prices';
+import { Week } from '@/app/models/week';
+import { useWeeklyGasPrices } from '../../gas-prices-components/hooks/collect-api-gas-prices';
 import DailyFuelCast from './daily-fuel-cast';
 
 export default function WeeklyFuelCast() {
-    const { data, isLoading, error } = getWeeklyGasPrices();
+    const { data, isLoading, error } = useWeeklyGasPrices();
 
     if (isLoading) {
         return ("Loading");
@@ -16,10 +17,9 @@ export default function WeeklyFuelCast() {
   
     return (
         <div className="flex flex-row justify-evenly">
-            {data?.prices.map((week, index, array) => {
-                const isFirstElement = index == 0;
-                const previousDayPrice = isFirstElement ? undefined : array[index - 1].value;
-                const trend = isFirstElement ? 0 : (week.value > previousDayPrice ? 1 : -1);
+            {data?.prices.map((week: Week, index: number, array: Week[]) => {
+                const previousDayPrice = index <= 0 ? undefined : array[index - 1].value;
+                const trend = previousDayPrice != undefined ? (week.value > previousDayPrice ? 1 : -1) : 0;
                 return <DailyFuelCast key={week.period} date={week.period} price={week.value} trend={trend}></DailyFuelCast>
             })}
         </div>
