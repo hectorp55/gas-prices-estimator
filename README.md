@@ -7,7 +7,7 @@ Built using Next.js
 
 This project was generated with next.js create-next-app.
 
-Hosted using Firebase
+Hosted using AWS Amplify
 
 Autodeployments occur on all commits to main branch.
 
