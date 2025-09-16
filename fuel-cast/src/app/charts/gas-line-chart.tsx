@@ -15,7 +15,7 @@ export default function GasLineChart() {
   }
 
   return (
-    <div className="w-full h-100">
+    <div className="w-full h-100 p-5">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={gasData?.prices}>
             <CartesianGrid />

@@ -6,7 +6,7 @@ export default function TodaysInformation() {
         <div className="todays-date">
             <h1 className="text-3xl">FuelCast</h1>
             <TodaysDate></TodaysDate>
-            <div>
+            <div className="text-gray-500">
                 Forecast
             </div>
         </div>

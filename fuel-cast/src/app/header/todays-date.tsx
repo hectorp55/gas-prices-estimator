@@ -16,7 +16,7 @@ export default function TodaysDate() {
     }, []);
   
     return (
-        <div className="todays-date">
+        <div className="text-gray-500">
             <main>
                 {currentDateTime}
             </main>
