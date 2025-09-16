@@ -20,8 +20,13 @@ const TodaysGasPrice: React.FC<TodaysGasPriceProps> = ({className}) => {
     }
   
     return (
-        <div className={`${className}`}>
-            Gas Price: {data?.price ?? 0}
+        <div className={`${className} flex flex-row`}>
+            <h1 className="text-5xl flex flex-col justify-center">
+                ${data?.price ?? 0}
+            </h1>
+            <div className="flex flex-col justify-center">
+                Texas
+            </div>
             {/* Pick a state: 
             <select name="selectedState" value={gasState} onChange={e => setGasState(e.target.value)}>
                 <option value="TX">Texas</option>
