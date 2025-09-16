@@ -19,7 +19,7 @@ export default function GasLineChart() {
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={gasData?.prices}>
             <CartesianGrid />
-            <Line dataKey="value" stroke="#8884d8"/>
+            <Line dataKey="value" stroke="#F97316"/>
             <XAxis dataKey="period"/>
             <YAxis domain={[0, 5]}/>
             <Legend />

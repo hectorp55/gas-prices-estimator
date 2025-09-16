@@ -16,8 +16,12 @@ export default function WeeklyFuelCast() {
   
     return (
         <div className="flex flex-row justify-evenly">
-            {data?.prices.map((week) => {
-                return <DailyFuelCast key={week.period} date={week.period} price={week.value}></DailyFuelCast>
+            {data?.prices.map((week, index, array) => {
+                const isFirstElement = index == 0;
+                const previousDayPrice = isFirstElement ? undefined : array[index - 1].value;
+                const trend = isFirstElement ? 0 : (week.value > previousDayPrice ? 1 : -1);
+                console.log(`Prev: ${previousDayPrice} Next: ${week.value} Trend: ${trend}`);
+                return <DailyFuelCast key={week.period} date={week.period} price={week.value} trend={trend}></DailyFuelCast>
             })}
         </div>
     );

@@ -5,7 +5,7 @@ export async function GET(request) {
     const endDate = new Date();
     const startDate = new Date(endDate);
     startDate.setMonth(startDate.getMonth() - 1);
-    const response = await fetch(`https://api.eia.gov/v2/petroleum/pri/gnd/data/?frequency=weekly&data[0]=value&start=${startDate.toISOString().substring(0, 10)}&end=${endDate.toISOString().substring(0, 10)}&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=31&facets[duoarea][]=STX&facets[product][]=EPMR&api_key=${API_KEY}`);
+    const response = await fetch(`https://api.eia.gov/v2/petroleum/pri/gnd/data/?frequency=weekly&data[0]=value&start=${startDate.toISOString().substring(0, 10)}&end=${endDate.toISOString().substring(0, 10)}&sort[0][column]=period&sort[0][direction]=asc&offset=0&length=31&facets[duoarea][]=STX&facets[product][]=EPMR&api_key=${API_KEY}`);
     if (!response.ok) {
         console.log(response);
         throw new Error('Problem with weekly gas prices');

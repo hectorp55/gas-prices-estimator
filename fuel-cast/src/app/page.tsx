@@ -11,7 +11,7 @@ export default function Home() {
       <main>
         <GasLineChart></GasLineChart>
       </main>
-      <footer>
+      <footer className="m-10">
         <WeeklyFuelCast></WeeklyFuelCast>
       </footer>
     </div>
