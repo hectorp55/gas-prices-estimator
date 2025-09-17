@@ -44,11 +44,11 @@ async function fetchWeeklyGasPrice() {
     }
     const data = await response.json();
     const weeklyData = data.response.data;
-    var sum = 0;
-    var high = weeklyData?.[0].value ?? 0;
-    var low = weeklyData?.[0].value ?? 0;
+    let sum = 0;
+    let high = weeklyData?.[0].value ?? 0;
+    let low = weeklyData?.[0].value ?? 0;
     weeklyData?.forEach((week: Week) => {
-        var weeklyPrice = Number(week.value);
+        const weeklyPrice = Number(week.value);
         sum += weeklyPrice;
         if (high < weeklyPrice) {
             high = weeklyPrice;

@@ -28,7 +28,7 @@ export default function Home() {
         </main>
         {/* Attribute */}
         <footer className="text-center m-10 text-xs text-[#828181]">
-          <a href="https://loading.io/icon/">the icon "spinner" is provided by loading.io</a>
+          <a href="https://loading.io/icon/">the icon &quot;spinner&quot; is provided by loading.io</a>
         </footer>
       </div>
     </div>
