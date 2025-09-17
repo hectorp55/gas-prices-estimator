@@ -21,7 +21,7 @@ const Insights: React.FC<DailyFuelProps> = ({className}) => {
     
     useEffect(() => {
         setAverageGasPrice(weeklyData?.averagePrice ?? 0);
-        setAverageGasPrice(Number(todaysData?.price) ?? 0);
+        setTodaysPrice(Number(todaysData?.price) ?? 0);
     }, [weeklyData, todaysData]);
         
     if (isDailyLoading || isWeeklyLoading) {
