@@ -4,6 +4,7 @@ import TodaysGasPrice from '../gas-prices-components/todays-gas-price';
 import { useTodaysGasPrice, useWeeklyGasPrices } from '../gas-prices-components/hooks/collect-api-gas-prices';
 import { Week } from '../models/week';
 import { formatDollar } from '../gas-prices-components/hooks/formatGasPrice';
+import Loading from '../loading';
 
 const TodaysInformtion: React.FC = ({}) => {
     const [averageGasPrice, setAverageGasPrice] = useState(0);
@@ -20,7 +21,7 @@ const TodaysInformtion: React.FC = ({}) => {
     }, [weeklyData]);
         
     if (isDailyLoading || isWeeklyLoading) {
-        return ("Loading");
+        return (<Loading></Loading>);
     }
     if (dailyError || weeklyError) {
         return (

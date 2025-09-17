@@ -1,4 +1,5 @@
 "use client";
+import Loading from '../loading';
 import { useHistoricalGasPrices } from './hooks/collect-api-gas-prices';
 
 type Observation = {
@@ -10,7 +11,7 @@ export default function HistoricalGasPrices() {
     const { data, isLoading, error } = useHistoricalGasPrices();
 
     if (isLoading) {
-        return ("Loading");
+        return <Loading></Loading>
     }
     if (error) {
         return (

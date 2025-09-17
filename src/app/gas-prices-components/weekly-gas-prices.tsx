@@ -1,4 +1,5 @@
 "use client";
+import Loading from '../loading';
 import { Week } from '../models/week';
 import { useWeeklyGasPrices } from './hooks/collect-api-gas-prices';
 
@@ -6,7 +7,7 @@ export default function WeeklyGasPrices() {
     const { data, isLoading, error } = useWeeklyGasPrices();
 
     if (isLoading) {
-        return ("Loading");
+        return <Loading></Loading>
     }
     if (error) {
         return (

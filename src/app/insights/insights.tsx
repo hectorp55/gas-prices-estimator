@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTodaysGasPrice, useWeeklyGasPrices } from "../gas-prices-components/hooks/collect-api-gas-prices";
 import { Week } from "../models/week";
+import Loading from "../loading";
 
 type DailyFuelProps = {
     className?: string
@@ -24,7 +25,7 @@ const Insights: React.FC<DailyFuelProps> = ({className}) => {
     }, [weeklyData, todaysData]);
         
     if (isDailyLoading || isWeeklyLoading) {
-        return ("Loading");
+        return (<Loading></Loading>);
     }
     if (dailyError || weeklyError) {
         return (

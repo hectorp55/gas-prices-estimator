@@ -12,8 +12,6 @@ Autodeployments occur on all commits to main branch.
 Availible at https://main.dnr2ymyleg9yr.amplifyapp.com/
 
 # TODO:
-- loading wheels
-- fav icon switch
 
 # Running Locally
 

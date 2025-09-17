@@ -2,12 +2,13 @@
 import { Week } from '@/app/models/week';
 import { useWeeklyGasPrices } from '../gas-prices-components/hooks/collect-api-gas-prices';
 import DailyFuelCast from './daily-fuel-cast';
+import Loading from '../loading';
 
 export default function WeeklyFuelCast() {
     const { data, isLoading, error } = useWeeklyGasPrices();
 
     if (isLoading) {
-        return ("Loading");
+        return (<Loading></Loading>);
     }
     if (error) {
         return (
