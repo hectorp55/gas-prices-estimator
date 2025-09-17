@@ -12,9 +12,6 @@ Autodeployments occur on all commits to main branch.
 Availible at https://main.dnr2ymyleg9yr.amplifyapp.com/
 
 # TODO:
-- update environment variables in aws
-- deploy to amplify
-- visual adjustments. Maybe remove the line graph and simplify more.
 - loading wheels
 - fav icon switch
 
