@@ -2,7 +2,10 @@
 
 :root {
   --background: #202020;
-    --foreground: #ededed;
+  --foreground: #ededed;
+  --postive-green:  #809E8C;
+  --negative-red: #A35752;
+  --nuetral-orange: #DE9250;
 }
 
 @theme inline {

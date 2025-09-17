@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./background.css";
 import Providers from "./query-providers";
 
 export const metadata: Metadata = {

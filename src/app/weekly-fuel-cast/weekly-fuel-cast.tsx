@@ -1,6 +1,6 @@
 "use client";
 import { Week } from '@/app/models/week';
-import { useWeeklyGasPrices } from '../../gas-prices-components/hooks/collect-api-gas-prices';
+import { useWeeklyGasPrices } from '../gas-prices-components/hooks/collect-api-gas-prices';
 import DailyFuelCast from './daily-fuel-cast';
 
 export default function WeeklyFuelCast() {

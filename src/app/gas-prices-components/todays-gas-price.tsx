@@ -1,6 +1,3 @@
-"use client";
-import { FaArrowAltCircleDown, FaArrowAltCircleUp } from 'react-icons/fa';
-
 type TodaysGasPriceProps = {
     averagePrice: number,
     todaysPrice: number,
@@ -8,20 +5,12 @@ type TodaysGasPriceProps = {
 }
 
 const TodaysGasPrice: React.FC<TodaysGasPriceProps> = ({averagePrice, todaysPrice, className}) => {
-    const trendColor = averagePrice < todaysPrice ? "text-red-500" : "text-green-500";
+    const trendColor = averagePrice < todaysPrice ? `text-(--negative-red)` : `text-(--postive-green)`;
     return (
         <div className={`${className} flex flex-row`}>
-            <h1 className={`text-5xl flex flex-row justify-center ${trendColor}`}>
-                {trendColor == "text-red-500" && <span className={`text-2xl ${trendColor} flex flex-col justify-center`}><FaArrowAltCircleUp/></span>}
-                {trendColor == "text-green-500" && <span className={`text-2xl ${trendColor} flex flex-col justify-center`}><FaArrowAltCircleDown/></span>}
-                <span className={`text-5xl ${trendColor} flex flex-col justify-center`}>${todaysPrice}</span>
+            <h1 className={`text-5xl text-center`}>
+                ${todaysPrice}
             </h1>
-            {/* Pick a state: 
-            <select name="selectedState" value={gasState} onChange={e => setGasState(e.target.value)}>
-                <option value="TX">Texas</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="NY">New York</option>
-            </select> */}
         </div>
     );
 }

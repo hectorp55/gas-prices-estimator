@@ -1,4 +1,5 @@
 "use client";
+import { Week } from "@/app/models/week";
 import { useQuery, QueryFunctionContext } from "@tanstack/react-query";
 
 async function fetchTodaysGasPrice({ queryKey }: QueryFunctionContext<[string, string | null | undefined]>) {
@@ -42,8 +43,23 @@ async function fetchWeeklyGasPrice() {
         throw new Error('Problem with historical gas prices');
     }
     const data = await response.json();
+    const weeklyData = data.response.data;
+    var sum = 0;
+    var high = weeklyData?.[0].value ?? 0;
+    var low = weeklyData?.[0].value ?? 0;
+    weeklyData?.forEach((week: Week) => {
+        var weeklyPrice = Number(week.value);
+        sum += weeklyPrice;
+        if (high < weeklyPrice) {
+            high = weeklyPrice;
+        }
+        if (low > weeklyPrice) {
+            low = weeklyPrice
+        }
+    });
+    const average = sum / weeklyData?.length;
 
-    return { prices: data.response.data };
+    return { prices: weeklyData, averagePrice: average, highPrice: high, lowPrice: low };
 }
 
 export const useWeeklyGasPrices = () => {
