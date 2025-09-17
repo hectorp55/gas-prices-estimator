@@ -14,6 +14,7 @@ export async function GET(request: NextRequest ) {
         "Authorization": API_KEY,
     }});
     if (!response.ok) {
+        console.error(response);
         throw new Error('Problem with gas prices');
     }
     const data = await response.json();

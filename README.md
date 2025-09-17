@@ -12,8 +12,10 @@ Hosted using AWS Amplify
 Autodeployments occur on all commits to main branch.
 
 # TODO:
-- update environment variables in github
-- deploy to firebase
+- update environment variables in aws
+- deploy to amplify
+- visual adjustments. Maybe remove the line graph and simplify more.
+- loading wheels
 
 # Running Locally
 
