@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useTodaysGasPrice, useWeeklyGasPrices } from "../gas-prices-components/hooks/collect-api-gas-prices";
-import { Week } from "../models/week";
 import Loading from "../loading";
+import ErrorDisplay from "../error";
 
 type DailyFuelProps = {
     className?: string
@@ -29,7 +29,7 @@ const Insights: React.FC<DailyFuelProps> = ({className}) => {
     }
     if (dailyError || weeklyError) {
         return (
-            <div>Error: {dailyError?.message ?? ""} {weeklyError?.message ?? ""}</div>
+            <ErrorDisplay message={`${dailyError?.message ?? "" + weeklyError?.message}`}></ErrorDisplay>
         );
     }
     

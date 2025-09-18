@@ -15,7 +15,7 @@ export async function GET(request: NextRequest ) {
     }});
     if (!response.ok) {
         console.error(response);
-        throw new Error('Problem with gas prices');
+        throw new Error('Problem with the Collect API gas price endpoint. Please try again or come back later.');
     }
     const data = await response.json();
     return new Response(JSON.stringify(data), {

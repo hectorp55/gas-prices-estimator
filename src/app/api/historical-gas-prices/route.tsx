@@ -6,7 +6,7 @@ export async function GET() {
     const response = await fetch(`https://api.stlouisfed.org/fred/series/observations?series_id=APU000074714&api_key=${API_KEY}&file_type=json&observation_start=2025-01-01&limit=12`);
     if (!response.ok) {
         console.error(response);
-        throw new Error('Problem with monthyl gas prices');
+        throw new Error('Problem with the Federal Reserve API. Please try again or come back later.');
     }
     const data = await response.json();
     return new Response(JSON.stringify(data), {

@@ -6,10 +6,10 @@ export default function Home() {
   return (
     <div className="app">
       {/* Background */}
-      <div className=".background-container">
-        <div className="stars"></div>
-        <div className="twinkling"></div>
-        <div className="clouds"></div>
+      <div className="background-container">
+        <div className="stars w-full"></div>
+        <div className="twinkling w-full"></div>
+        <div className="clouds w-full"></div>
       </div>
       {/* Main */}
       <div className="m-10 z-5 relative">

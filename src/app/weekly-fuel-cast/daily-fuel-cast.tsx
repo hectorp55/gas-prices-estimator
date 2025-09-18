@@ -12,7 +12,7 @@ const DailyFuelCast: React.FC<DailyFuelProps> = ({date, price, trend, className}
     const commonIconClasses = `text-5xl ${trendColor} flex flex-row justify-center p-3`;
     
     return (
-        <div className={`${className} flex flex-col`}>
+        <div className={`${className} flex flex-col w-1/5 text-sm`}>
             <h3 className="text-center">{date}</h3>
             {trend > 0 && <span className={commonIconClasses}><FaArrowAltCircleUp/></span>}
             {trend < 0 && <span className={commonIconClasses}><FaArrowAltCircleDown/></span>}
