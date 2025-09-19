@@ -14,8 +14,16 @@ export async function GET(request: NextRequest ) {
         "Authorization": API_KEY,
     }});
     if (!response.ok) {
-        console.error(response);
-        throw new Error('Problem with the Collect API gas price endpoint. Please try again or come back later.');
+        console.error('Problem with the Collect API gas price endpoint. Please try again or come back later.');
+        // Need fake gas price because my API key free trial has ended, but keeping the same format to show functionality.
+        const fakeGasPriceData = {
+            result: {
+                state: [
+                    {gasoline: 2.65}
+                ]
+            }
+        };
+        return new Response(JSON.stringify(fakeGasPriceData));
     }
     const data = await response.json();
     return new Response(JSON.stringify(data), {

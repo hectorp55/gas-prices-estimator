@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import TodaysGasPrice from '../gas-prices-components/todays-gas-price';
 import { useTodaysGasPrice, useWeeklyGasPrices } from '../gas-prices-components/hooks/collect-api-gas-prices';
-import { Week } from '../models/week';
 import { formatDollar } from '../gas-prices-components/hooks/formatGasPrice';
 import Loading from '../loading';
 
