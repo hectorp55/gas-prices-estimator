@@ -21,7 +21,7 @@ export default function WeeklyFuelCast() {
             {data?.prices.map((week: Week, index: number, array: Week[]) => {
                 const previousDayPrice = index <= 0 ? undefined : array[index - 1].value;
                 const trend = previousDayPrice != undefined ? (week.value > previousDayPrice ? 1 : -1) : 0;
-                return <DailyFuelCast key={week.period} date={week.period} price={week.value} trend={trend}></DailyFuelCast>
+                return <DailyFuelCast key={week.period} date={week.period} price={Number(week.value)} trend={trend}></DailyFuelCast>
             })}
         </div>
     );

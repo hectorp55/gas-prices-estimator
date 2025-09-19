@@ -1,8 +1,9 @@
 import { FaArrowAltCircleUp, FaArrowAltCircleDown, FaArrowAltCircleRight } from "react-icons/fa";
+import { formatDollar } from "../gas-prices-components/hooks/formatGasPrice";
 
 type DailyFuelProps = {
     date: string,
-    price: string,
+    price: number,
     trend: number,
     className?: string
 }
@@ -17,7 +18,7 @@ const DailyFuelCast: React.FC<DailyFuelProps> = ({date, price, trend, className}
             {trend > 0 && <span className={commonIconClasses}><FaArrowAltCircleUp/></span>}
             {trend < 0 && <span className={commonIconClasses}><FaArrowAltCircleDown/></span>}
             {trend == 0 && <span className={commonIconClasses}><FaArrowAltCircleRight/></span>}
-            <h3 className={`text-center`}>${price}</h3>
+            <h3 className={`text-center`}>{formatDollar(price)}</h3>
         </div>
     );
 }
